@@ -1,6 +1,5 @@
 use common_utils::errors::CustomResult;
-use error_stack::{IntoReport, ResultExt};
-use external_services::kms::{decrypt::KmsDecrypt, KmsClient, KmsError, KmsValue};
+use external_services::kms::{decrypt::KmsDecrypt, KmsClient, KmsError};
 use masking::ExposeInterface;
 
 use crate::configs::settings;
@@ -19,6 +18,7 @@ impl KmsDecrypt for settings::Jwekey {
             self.locker_decryption_key1,
             self.locker_decryption_key2,
             self.vault_encryption_key,
+            self.rust_locker_encryption_key,
             self.vault_private_key,
             self.tunnel_private_key,
         ) = tokio::try_join!(
@@ -27,6 +27,7 @@ impl KmsDecrypt for settings::Jwekey {
             kms_client.decrypt(self.locker_decryption_key1),
             kms_client.decrypt(self.locker_decryption_key2),
             kms_client.decrypt(self.vault_encryption_key),
+            kms_client.decrypt(self.rust_locker_encryption_key),
             kms_client.decrypt(self.vault_private_key),
             kms_client.decrypt(self.tunnel_private_key),
         )?;
@@ -42,19 +43,6 @@ impl KmsDecrypt for settings::ActiveKmsSecrets {
         kms_client: &KmsClient,
     ) -> CustomResult<Self::Output, KmsError> {
         self.jwekey = self.jwekey.expose().decrypt_inner(kms_client).await?.into();
-        self.redis_temp_locker_encryption_key = hex::decode(
-            KmsValue(
-                String::from_utf8(self.redis_temp_locker_encryption_key.expose())
-                    .into_report()
-                    .change_context(KmsError::Utf8DecodeFailed)?
-                    .into(),
-            )
-            .decrypt_inner(kms_client)
-            .await?,
-        )
-        .into_report()
-        .change_context(KmsError::HexDecodeFailed)?
-        .into();
         Ok(self)
     }
 }

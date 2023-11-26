@@ -35,19 +35,11 @@ The single API to access payment ecosystems across 130+ countries</div>
   </a>
 </p>
 
-<h1 align="center">🎉 Hacktoberfest is here! 🎉</h1>
-
-New to Rust? Hyperswitch is the perfect place to start this hacktoberfest! 😁
-
-> ⭐️ If you're new to Hacktoberfest, you can learn more and register to participate [here](https://hacktoberfest.com/participation/). Registration is from **September 26th - October 31st**.
-
 
 <hr>
 <img src="./docs/imgs/switch.png" />
 
-Hyperswitch is an open source payments switch to make payments fast, reliable, and, affordable.
-It lets you connect with multiple payment processors and route traffic effortlessly, all with a single API integration.
-
+Hyperswitch is a community-led, open payments switch to enable access to the best payments infrastructure for every digital business.
 
 Using Hyperswitch, you can:
 
@@ -58,8 +50,6 @@ Using Hyperswitch, you can:
 - 🎨 **Customize payment flows** with full visibility and control
 - 🌐 **Increase business reach** with local/alternate payment methods
 
-> Hyperswitch is **wire-compatible** with top processors like Stripe, making it easy to integrate.
-
 <br>
 <img src="./docs/imgs/hyperswitch-product.png" alt="Hyperswitch-Product" width="50%"/>
 
@@ -67,24 +57,20 @@ Using Hyperswitch, you can:
   <h2 id="Quick Start Guide">⚡️ Quick Start Guide</h2>
 </a>
 
+<h3> One-click deployment on AWS cloud </h3>
 
-<a href="https://app.hyperswitch.io/register"><img src="./docs/imgs/signup-to-hs.svg" height="35"></a>
+The fastest and easiest way to try hyperswitch is via our CDK scripts
 
-Ways to get started with Hyperswitch:
+1. Click on the following button for a quick standalone deployment on AWS, suitable for prototyping.
+   No code or setup is required in your system and the deployment is covered within the AWS free-tier setup.
 
-1. Try it in our Sandbox Environment: Fast and easy to
-   start.
-   No code or setup is required in your system, [learn more](/docs/try_sandbox.md)
+&emsp;&emsp; <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=HyperswitchBootstarp&templateURL=https://hyperswitch-synth.s3.eu-central-1.amazonaws.com/hs-starter-config.yaml"><img src="./docs/imgs/aws_button.png" height="35"></a>
 
+2. Sign-in to your AWS console.
 
-<a href="https://app.hyperswitch.io/register"><img src="./docs/imgs/get-api-keys.svg" height="35"></a>
+3. Follow the instructions provided on the console to successfully deploy Hyperswitch
 
-2. A simple demo of integrating Hyperswitch with your React App, Try our React [Demo App](https://github.com/aashu331998/hyperswitch-react-demo-app/archive/refs/heads/main.zip).
-
-
-3. Install in your local system: Configurations and
-   setup required in your system.
-   Suitable if you like to customise the core offering, [setup guide](/docs/try_local_system.md)
+For an early access to the production-ready setup fill this <a href="https://forms.gle/v6ru55XDZFufVPnu9">Early Access Form</a>
 
 <a href="#Fast-Integration-for-Stripe-Users">
   <h2 id="Fast Integration for Stripe Users">🔌 Fast Integration for Stripe Users</h2>
@@ -114,7 +100,7 @@ You can find the latest list of payment processors, supported methods, and
 features
 [here][supported-connectors-and-features].
 
-[supported-connectors-and-features]: https://docs.google.com/spreadsheets/d/e/2PACX-1vQWHLza9m5iO4Ol-tEBx22_Nnq8Mb3ISCWI53nrinIGLK8eHYmHGnvXFXUXEut8AFyGyI9DipsYaBLG/pubhtml?gid=0&single=true
+[supported-connectors-and-features]: https://hyperswitch.io/pm-list
 
 ### 🌟 Hosted Version
 
@@ -266,7 +252,8 @@ We welcome contributions from the community. Please read through our
 Included are directions for opening issues, coding standards, and notes on
 development.
 
-🦀 **Important note for Rust developers**: We aim for contributions from the community
+- We appreciate all types of contributions: code, documentation, demo creation, or something new way you want to contribute to us. We will reward every contribution with a Hyperswitch branded t-shirt. 
+- 🦀 **Important note for Rust developers**: We aim for contributions from the community
 across a broad range of tracks. Hence, we have prioritised simplicity and code
 readability over purely idiomatic code. For example, some of the code in core
 functions (e.g., `payments_core`) is written to be more readable than
@@ -278,10 +265,9 @@ pure-idiomatic.
 
 Get updates on Hyperswitch development and chat with the community:
 
-- Read and subscribe to [the official Hyperswitch blog][blog].
-- Join our [Discord server][discord].
-- Join our [Slack workspace][slack].
-- Ask and explore our [GitHub Discussions][github-discussions].
+- [Discord server][discord] for questions related to contributing to hyperswitch, questions about the architecture, components, etc.
+- [Slack workspace][slack] for questions related to integrating hyperswitch, integrating a connector in hyperswitch, etc.
+- [GitHub Discussions][github-discussions] to drop feature requests or suggest anything payments-related you need for your stack.
 
 [blog]: https://hyperswitch.io/blog
 [discord]: https://discord.gg/wJZ7DVW8mm
